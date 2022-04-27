@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #border-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+button {
+  border: 0;
+  border-radius: 6px;
+  background: #35ccbf;
+  text-transform: uppercase;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 8px 30px;
+    margin-left:20px;
+    margin-right: 15px;
+  outline: none;
+  position: relative;
+}
+
+    </style>
+</head>
+<body style="display:flex;justify-content: space-evenly;background-color:#c9efec;">
+<div style="height: 400px;width: 400px;background-color: white;position:absolute;top: 100px;display: flex;position: relative;justify-content: center;align-content: center">
+    <div style="color:#565555;font:600 18px '';height: 270px;width:350px;border:3px solid #565555;margin-top: 20px;overflow: hidden">
+        <ol id="myList">
+            <li>吃饭</li>
+            <li>睡觉</li>
+            <li>打豆豆</li>
+            <li>上厕所</li>
+        </ol>
+    </div>
+
+    <div style="position: absolute;bottom: 20px;margin: 20px 40px;">
+         <input  style="outline:none;border: 0; border-bottom: 3px solid #565555;" type="text" id="new" name="new" value="">
+        <button  id="add" name="add" onclick="myFunction()">添加</button>
+
+    </div>
+
+</div>
+<div style="display:block;position:absolute;bottom:200px;height: 150px;width: 400px;background-color: white;display: flex;justify-content: center">
+    <input style="border: 3px solid #565555;width:350px;height: 50px; margin-top: 20px;text-align: center;font:600 18px '';" disabled="disabled" style="border: none;margin: 20px;background-color: white;" type="text" id="myRandom" name="myRandom" value=" ">
+    <div style="position: absolute;bottom: 10px;margin: 10px 20px;">
+         <button  id="Random" name="Random" onclick="randString()">随机</button>
+        <button  id="Compl" name="Compl" onclick="delString()">完成</button>
+    </div>
+
+
+</div>
+
+<script>
+function myFunction() {
+    var node=document.createElement("LI");
+    var N=document.getElementById('new').value;
+    var textnode=document.createTextNode(N);
+    node.appendChild(textnode);
+    document.getElementById("myList").appendChild(node);
+    document.getElementById('new').value= '';
+}
+function getRndInteger(min,max){
+    return Math.floor(Math.random()*(max-min))+min;
+}
+function randString(){
+    let list=document.getElementById("myList").getElementsByTagName("li");
+    let idx=getRndInteger(0,list.length);
+    document.getElementById('myRandom').value=(list[idx].innerText);
+}
+function delString(){
+    let list=document.getElementById("myList")
+    let x=document.getElementById('myRandom').value;
+    let newList =list.innerText.split(/[(\r\n)\r\n]+/);
+    for(var i=0;i<=newList.length;i++){
+        if(x===newList[i]){
+            idx=i
+        }
+    }
+    list.removeChild(list.children[idx])
+    console.log(list)
+}
+// function treeFind(tree,func){
+//     for (cost data of tree){
+//         if (fun(data))return data
+//         if (data.children){
+//             const res = treeFind(data,children,func)
+//         }
+//     }
+// }
+
+
+</script>
+
+</body>
+</html>
