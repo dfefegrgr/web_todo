@@ -72,17 +72,18 @@ function randString(){
     let idx=getRndInteger(0,list.length);
     document.getElementById('myRandom').value=(list[idx].innerText);
 }
+
 function delString(){
     let list=document.getElementById("myList")
     let x=document.getElementById('myRandom').value;
     let newList =list.innerText.split(/[(\r\n)\r\n]+/);
+    let idx;
     for(var i=0;i<=newList.length;i++){
         if(x===newList[i]){
             idx=i
         }
     }
     list.removeChild(list.children[idx])
-    console.log(list)
 }
 
 // autoheight();
