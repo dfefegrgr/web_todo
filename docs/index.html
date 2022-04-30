@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--<meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=0.5,maximum-scale=2,user-scalable=yes" />-->
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -28,30 +29,32 @@ button {
 
     </style>
 </head>
-<body style="display:flex;justify-content: space-evenly;background-color:#c9efec;">
-<div style="height: 400px;width: 400px;background-color: white;position:absolute;top: 100px;display: flex;position: relative;justify-content: center;align-content: center">
-    <div style="color:#565555;font:600 18px '';height: 270px;width:350px;border:3px solid #565555;margin-top: 20px;overflow: hidden">
+<body style="height:calc(100% - 20px);display:flex;justify-content: space-evenly;background-color:#c9efec;">
+<div id="test" style="padding:20px;width: 500px;height:700px;display: flex;justify-content: space-evenly;align-content: center;top: 60px;position: relative;">
+<div style="height: 400px;width: 400px;background-color: white;position:absolute;margin:20px;display: block;position: absolute;justify-content: center;align-content: center">
+    <div style="color:#565555;font:600 18px '';height: 270px;width:350px;border:3px solid #565555;margin:20px;overflow: hidden">
         <ol id="myList">
+
         </ol>
     </div>
 
-    <div style="position: absolute;bottom: 20px;margin: 20px 40px;">
-         <input  style="outline:none;border: 0; border-bottom: 3px solid #565555;" type="text" id="new" name="new" value="">
-        <button  id="add" name="add" onclick="myFunction()">添加</button>
+    <div style="position: absolute;bottom: 20px;margin: 20px 30px;">
+         <input  style="outline:none;text-align:center;border: 0; border-bottom: 3px solid #565555;font:500 16px ''; " type="text" id="new" name="new" value="">
+        <button   id="add" name="add" onclick="myFunction()">添加</button>
 
     </div>
 
 </div>
-<div style="display:block;position:absolute;bottom:200px;height: 150px;width: 400px;background-color: white;display: flex;justify-content: center">
-    <input style="border: 3px solid #565555;width:350px;height: 50px; margin-top: 20px;text-align: center;font:600 18px '';" disabled="disabled" style="border: none;margin: 20px;background-color: white;" type="text" id="myRandom" name="myRandom" value=" ">
-    <div style="position: absolute;bottom: 10px;margin: 10px 20px;">
+<div style="display:block;position:absolute;margin:20px;top:430px;height: 150px;width: 400px;background-color: white;display: block;justify-content: center">
+    <input style="border: 3px solid #565555;width:350px;height: 50px; margin: 20px;text-align: center;font:600 18px '' " disabled="disabled" style="border: none;background-color: white;" type="text" id="myRandom" name="myRandom" value=" ">
+    <div style="display:flex;align-content:center;justify-content:space-evenly;position: absolute;margin-left: 70px">
          <button  id="Random" name="Random" onclick="randString()">随机</button>
         <button  id="Compl" name="Compl" onclick="delString()">完成</button>
     </div>
 
 
 </div>
-
+</div>
 <script>
 function myFunction() {
     var node=document.createElement("LI");
@@ -81,14 +84,20 @@ function delString(){
     list.removeChild(list.children[idx])
     console.log(list)
 }
-// function treeFind(tree,func){
-//     for (cost data of tree){
-//         if (fun(data))return data
-//         if (data.children){
-//             const res = treeFind(data,children,func)
-//         }
-//     }
+
+// autoheight();
+// function autoheight(){
+//     var winHeight=0;
+//     if (window.innerHeight)
+//         winHeight = window.innerHeight;
+//     else  if((document.body)&&(document.body.clientHeight))
+//         winHeight = document.body.clientHeight;
+//     if (document.documentElement && document.documentElement.clientHeight)
+//         winHeight = document.documentElement.clientHeight;
+//     document.getElementById("test").style.height=winHeight+"px";
 // }
+// window.onresize=autoheight();
+
 
 
 </script>
